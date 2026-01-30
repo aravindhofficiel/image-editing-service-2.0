@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Image Retouching Services</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- page style -->
+    <style>
+        :root {
+            --primary-color: #2d3436;
+            --accent-color: #0984e3;
+            --text-gray: #636e72;
+            --bg-light: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--primary-color);
+            background-color: var(--white);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            padding-top: 90px;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1551269901-5c5e14c25df7?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 70px;
+        }
+
+        .hero-content h1 { font-size: 3rem; margin-bottom: 10px; }
+        .hero-content p { font-size: 1.2rem; opacity: 0.9; }
+
+        /* --- Services Section --- */
+        .services { padding: 80px 0; }
+
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; }
+        .section-title span {
+            display: block; width: 50px; height: 3px;
+            background: var(--accent-color); margin: 15px auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .service-img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+
+        .service-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* --- CTA Section --- */
+        .cta {
+            padding: 100px 0;
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 45px;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-top: 30px;
+            transition: 0.3s;
+        }
+
+        .btn:hover { background-color: #0773c5; }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .services-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+    <!-- page style end -->
+
+    <!-- navbar style start -->
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #64748b;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --font-main: 'Poppins', sans-serif;
+           
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.85rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .section-title p {
+            color: var(--secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--secondary);
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--dark);
+            margin: 5px 0;
+            transition: var(--transition);
+        }
+         /* Footer */
+        footer {
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .copyright {
+            width: 100%;
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section-padding { padding: 4rem 0; }
+            
+            .hamburger { display: block; }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--white);
+                flex-direction: column;
+                padding: 4rem 2rem;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .ba-container {
+                grid-template-columns: 1fr;
+            }
+
+            .price-card.featured {
+                transform: scale(1);
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        
+    </style>
+    <!-- navbar style end -->
+
+
+</head>
+<body>
+
+     <!-- navabr section -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">PIXBROWN</a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                <li><a href="/pages/about.html" class="nav-link">About</a></li>
+                <li><a href="/pages/contact.html" class="btn btn-primary">Contact</a></li>
+            </ul>
+
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Our Retouching Services</h1>
+            <p>Premium post-production tailored for your visual needs.</p>
+        </div>
+    </header>
+
+    <section class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>What We Offer</h2>
+                <span></span>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80" alt="Portrait Retouching" class="service-img">
+                    <div class="service-content">
+                        <h3>Portrait Retouching</h3>
+                        <p>High-end skin retouching, frequency separation, and facial feature enhancement while keeping natural textures intact.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80" alt="Product Retouching" class="service-img">
+                    <div class="service-content">
+                        <h3>Product Retouching</h3>
+                        <p>Perfect for e-commerce. We handle dust removal, color matching, and reflection cleanup for a catalog-ready look.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Real Estate" class="service-img">
+                    <div class="service-content">
+                        <h3>Real Estate Editing</h3>
+                        <p>Specialized window masking, sky replacement, and HDR blending to make architectural spaces look inviting.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80" alt="Fashion" class="service-img">
+                    <div class="service-content">
+                        <h3>Fashion & Editorial</h3>
+                        <p>Advanced body shaping, clothing crease removal, and creative color grading for magazines and lookbooks.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=600&q=80" alt="Jewelry" class="service-img">
+                    <div class="service-content">
+                        <h3>Jewelry & Macro</h3>
+                        <p>Highly detailed focus-stacking assistance and metal polishing to ensure every sparkle is captured perfectly.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1517142089942-ba376ce32a2e?auto=format&fit=crop&w=600&q=80" alt="Background Removal" class="service-img">
+                    <div class="service-content">
+                        <h3>Background Removal</h3>
+                        <p>Precise clipping paths and masking for complex hair or fur, delivered in PNG or PSD format with transparent backgrounds.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Enhance Your Brand?</h2>
+            <p>Join 500+ photographers who trust us with their post-production.</p>
+            <a href="#" class="btn">Get Started Now</a>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+
+
+
+<script src="script.js"></script>
+
+  <script>
+    fetch('../components/footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer').innerHTML = data;
+        });
+</script>  
+
+</body>
+</html>

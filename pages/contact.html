@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com https://i.pravatar.cc data:;">
+    
+    <title>Contact Us | SheVenture</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --sv-purple: #7B61FF;
+            --sv-dark: #0D0D11;
+            --sv-bg-gray: #F9F9FB;
+            --sv-text-gray: #666666;
+            --sv-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            /* Gradient matching your hero section */
+            background: radial-gradient(circle at 10% 90%, rgba(123, 97, 255, 0.06) 0%, transparent 40%);
+        }
+
+        /* Laptop-First Grid Layout */
+        .sv-contact-wrapper {
+            width: 100%;
+            max-width: 1100px;
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            background: #ffffff;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        /* Sidebar Info */
+        .sv-info-panel {
+            background-color: var(--sv-dark);
+            padding: 60px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sv-info-panel h2 {
+            font-size: 3rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .sv-info-panel h2 span {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--sv-purple);
+        }
+
+        .sv-contact-list {
+            list-style: none;
+            margin-top: 40px;
+        }
+
+        .sv-contact-list li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            color: rgba(255,255,255,0.7);
+            font-weight: 300;
+        }
+
+        .sv-icon-circle {
+            width: 44px; height: 44px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--sv-purple);
+        }
+
+        /* Form Area */
+        .sv-form-panel {
+            padding: 60px;
+            position: relative;
+        }
+
+        .sv-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .sv-full { grid-column: span 2; }
+
+        .sv-input-group {
+            position: relative;
+            margin-bottom: 5px;
+        }
+
+        .sv-input-group input, 
+        .sv-input-group textarea {
+            width: 100%;
+            padding: 18px 20px;
+            background: var(--sv-bg-gray);
+            border: 2px solid transparent;
+            border-radius: 18px;
+            outline: none;
+            font-size: 0.95rem;
+            transition: var(--sv-transition);
+        }
+
+        .sv-input-group textarea { height: 160px; resize: none; }
+
+        .sv-input-group label {
+            position: absolute;
+            left: 20px; top: 18px;
+            color: #999;
+            pointer-events: none;
+            transition: var(--sv-transition);
+        }
+
+        /* Floating Animation */
+        .sv-input-group input:focus ~ label,
+        .sv-input-group input:not(:placeholder-shown) ~ label,
+        .sv-input-group textarea:focus ~ label,
+        .sv-input-group textarea:not(:placeholder-shown) ~ label {
+            top: -12px; left: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--sv-purple);
+            background: #fff;
+            padding: 0 10px;
+        }
+
+        .sv-input-group input:focus, 
+        .sv-input-group textarea:focus {
+            border-color: var(--sv-purple);
+            background: #fff;
+            box-shadow: 0 10px 25px rgba(123, 97, 255, 0.05);
+        }
+
+        .sv-submit-btn {
+            width: 100%;
+            padding: 20px;
+            margin-top: 25px;
+            background: var(--sv-purple);
+            color: #fff;
+            border: none;
+            border-radius: 18px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+            transition: var(--sv-transition);
+        }
+
+        .sv-submit-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(123, 97, 255, 0.3);
+        }
+
+        /* Success Message Overlay */
+        #sv-success {
+            position: absolute;
+            inset: 0;
+            background: #ffffff;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+            z-index: 5;
+        }
+
+        .sv-check {
+            width: 80px; height: 80px;
+            background: #E8F5E9;
+            color: #4CAF50;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 40px; margin-bottom: 20px;
+        }
+
+        /* Responsive: Tablet/Mobile */
+        @media (max-width: 1024px) {
+            .sv-contact-wrapper { grid-template-columns: 1fr; max-width: 600px; }
+            .sv-info-panel { padding: 40px; }
+        }
+
+        @media (max-width: 600px) {
+            .sv-form-grid { grid-template-columns: 1fr; }
+            .sv-full { grid-column: span 1; }
+            .sv-form-panel { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="components/navbar" ></div>
+
+    <div class="sv-contact-wrapper">
+        <div class="sv-info-panel">
+            <div>
+                <h2>Let's <span>Talk</span></h2>
+                <p style="opacity: 0.6; font-weight: 300; margin-top: 10px;">Reach out to the SheVenture team for program details and partnerships.</p>
+                
+                <ul class="sv-contact-list">
+                    <li><div class="sv-icon-circle">✉</div> hello@sheventure.com</li>
+                    <li><div class="sv-icon-circle">📍</div> Manhattan, NY 10012</li>
+                </ul>
+            </div>
+            <div style="font-size: 0.7rem; letter-spacing: 3px; opacity: 0.3;">
+                EST. 2026 / ACCELERATOR
+            </div>
+        </div>
+
+        <div class="sv-form-panel">
+            <form id="svForm">
+                <div class="sv-form-grid">
+                    <div class="sv-input-group">
+                        <input type="text" id="name" placeholder=" " required>
+                        <label>Full Name</label>
+                    </div>
+                    <div class="sv-input-group">
+                        <input type="email" id="email" placeholder=" " required>
+                        <label>Email Address</label>
+                    </div>
+                    <div class="sv-input-group sv-full">
+                        <input type="text" id="company" placeholder=" " required>
+                        <label>Company / Project Name</label>
+                    </div>
+                    <div class="sv-input-group sv-full">
+                        <textarea id="message" placeholder=" " required></textarea>
+                        <label>Message</label>
+                    </div>
+                </div>
+                <button type="submit" class="sv-submit-btn" id="svBtn">
+                    Send Message <span>↗</span>
+                </button>
+            </form>
+
+            <div id="sv-success">
+                <div class="sv-check">✓</div>
+                <h3>Message Sent Successfully!</h3>
+                <p style="color: var(--sv-text-gray); margin-top: 10px;">Our team will get back to you within 24 hours.</p>
+                <button onclick="resetSV()" style="margin-top: 25px; border: none; background: none; color: var(--sv-purple); font-weight: 600; cursor: pointer;">Send another message</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('svForm');
+        const overlay = document.getElementById('sv-success');
+        const btn = document.getElementById('svBtn');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            btn.innerHTML = "Processing...";
+            btn.style.opacity = "0.7";
+            
+            // Simulating an API call
+            setTimeout(() => {
+                overlay.style.display = 'flex';
+                form.reset();
+            }, 1200);
+        });
+
+        function resetSV() {
+            overlay.style.display = 'none';
+            btn.innerHTML = "Send Message <span>↗</span>";
+            btn.style.opacity = "1";
+        }
+    </script>
+
+</body>
+</html>

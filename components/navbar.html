@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixbrown | Responsive Navigation</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300
+;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+    
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-dots">
+                    <span class="dot emerald"></span>
+                    <span class="dot blue"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot rose"></span>
+                </div>
+                <span class="logo-text">Pixbrown</span>
+            </div>
+
+            <nav class="nav-links" id="navLinks">
+                <button class="menu-close" id="menuClose" aria-label="Close Menu">&times;</button>
+                <a href="#home" class="nav-item">Home</a>
+                <a href="#services" class="nav-item">Services</a>
+                <a href="#portfolio" class="nav-item">Portfolio</a>
+                <a href="#pricing" class="nav-item">Pricing</a>
+                <a href="#about" class="nav-item">About</a>
+                <a href="pages/contact.html" class="nav-item">Contact</a>
+            </nav>
+
+            <button class="hamburger" id="menuTrigger" aria-label="Open Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <main style="padding-top: 100px; max-width: 1000px; margin: auto; padding-inline: 20px;">
+        <h1>Professional Adaptive Navbar</h1>
+        <p>Scroll down to see the fixed navbar behavior...</p>
+        <div style="height: 200vh;"></div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
