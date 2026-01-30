@@ -16,7 +16,7 @@
     font-family: var(--font-family);
 }
 
-.container {
+.process-container {
     max-width: 1200px;
     margin: 0 auto;
 }
